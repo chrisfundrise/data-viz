@@ -15,42 +15,34 @@
 				
 				$("#chart").highcharts({
 					chart: {
-						type: "column"
+						type: "columnrange"
 					},
 					series: [{
 						data: [{
 							color: "hsl(210,10%,80%)",
-							y: 1.37,
+							low: 3.50,
+							high: 4.50
 						},{
 							color: "hsl(210,10%,80%)",
-							y: 2.1,
+							low: 3.75,
+							high: 4.25
 						},{
 							color: "hsl(210,10%,80%)",
-							y: 6.98,
+							low: 4.25,
+							high: 4.75
 						},{
 							color: "#F47735",
-							y: 13.0,
+							low: 5.25,
+							high: 5.75
+						},{
+							color: "#F47735",
+							low: 5.75,
+							high: 6.25
+						},{
+							color: "#F47735",
+							low: 8.50,
+							high: 9.50
 						}],
-						dataLabels: {
-							color: "#242628",
-							crop: false,
-							enabled: true,
-							formatter: function() {
-								var num = this.y;
-								num = num.toFixed(2);
-								num = num + "%";
-								
-								if(this.y == 13.0) {
-									return '<span style="fill: hsl(210,5%,15%);">' + num + '\u00B9</span>';
-								} else {
-									return '<span style="fill: hsl(210,5%,55%);">' + num + '</span>';
-								}
-							},
-							overflow: "none",
-							style: {
-								fontSize: 24
-							}
-						},
 						states: {
 							hover: {
 								enabled: false
@@ -61,12 +53,9 @@
 						enabled: false
 					},
 					xAxis: {
-						categories: ["S\&P 500", "NAREIT Composite", "NASDAQ", "Fundrise"],
+						categories: ["Los Angeles", "New York", "Seattle", "Atlanta", "Phoenix", "Memphis"],
 						labels: {
-							color: "#242628",
-							style: {
-								fontSize: 18
-							}
+							color: "#242628"
 						},
 						lineColor: "hsl(210,10%,80%)"
 					},
@@ -77,7 +66,9 @@
 								num = num + "%";
 								return num;
 							}
-						}
+						},
+						min: 0,
+						max: 10
 					}
 				});
 			});
