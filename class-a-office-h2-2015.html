@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<script type="text/javascript" src="https://d10cq78zmnjvsx.cloudfront.net/js/jquery-1.9.1.gz.min.js"></script>
+		<script type="text/javascript" src="https://d10cq78zmnjvsx.cloudfront.net/js/highcharts/highcharts-4.1.9.js"></script>
+		<script type="text/javascript" src="https://d10cq78zmnjvsx.cloudfront.net/js/highcharts/highcharts-more-4.1.9.js"></script>
+		<script type="text/javascript" src="https://d10cq78zmnjvsx.cloudfront.net/js/highcharts/highcharts-settings.js"></script>
+		
+		<link href="master.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div id="chart" class="chart"></div>
+
+		<script type="text/javascript">
+			$(function() {
+				
+				$("#chart").highcharts({
+					chart: {
+						type: "column"
+					},
+					series: [{
+						data: [{
+							color: "hsl(210,10%,80%)",
+							y: 1.37,
+						},{
+							color: "hsl(210,10%,80%)",
+							y: 2.1,
+						},{
+							color: "hsl(210,10%,80%)",
+							y: 6.98,
+						},{
+							color: "#F47735",
+							y: 13.0,
+						}],
+						dataLabels: {
+							color: "#242628",
+							crop: false,
+							enabled: true,
+							formatter: function() {
+								var num = this.y;
+								num = num.toFixed(2);
+								num = num + "%";
+								
+								if(this.y == 13.0) {
+									return '<span style="fill: hsl(210,5%,15%);">' + num + '\u00B9</span>';
+								} else {
+									return '<span style="fill: hsl(210,5%,55%);">' + num + '</span>';
+								}
+							},
+							overflow: "none",
+							style: {
+								fontSize: 24
+							}
+						},
+						states: {
+							hover: {
+								enabled: false
+							}
+						}
+					}],
+					tooltip: {
+						enabled: false
+					},
+					xAxis: {
+						categories: ["S\&P 500", "NAREIT Composite", "NASDAQ", "Fundrise"],
+						labels: {
+							color: "#242628",
+							style: {
+								fontSize: 18
+							}
+						},
+						lineColor: "hsl(210,10%,80%)"
+					},
+					yAxis: {
+						labels: {
+							formatter: function() {
+								var num = this.value;
+								num = num + "%";
+								return num;
+							}
+						}
+					}
+				});
+			});
+		</script>
+
+				
+	</body>
+</html>
