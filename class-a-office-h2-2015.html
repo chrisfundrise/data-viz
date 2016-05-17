@@ -45,7 +45,9 @@
 					xAxis: {
 						categories: ["Los Angeles", "New York", "Seattle", "Atlanta", "Phoenix", "Memphis"],
 						labels: {
-							color: "#242628"
+							style: {
+								fontSize: 14
+							}
 						},
 						lineColor: "hsl(210,10%,80%)"
 					},
@@ -55,6 +57,9 @@
 								var num = this.value;
 								num = num + "%";
 								return num;
+							},
+							style: {
+								fontSize: 14
 							}
 						},
 						min: 0,
