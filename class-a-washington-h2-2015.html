@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<script type="text/javascript" src="https://d10cq78zmnjvsx.cloudfront.net/js/jquery-1.9.1.gz.min.js"></script>
+		<script type="text/javascript" src="https://d10cq78zmnjvsx.cloudfront.net/js/highcharts/highcharts-4.1.9.js"></script>
+		<script type="text/javascript" src="https://d10cq78zmnjvsx.cloudfront.net/js/highcharts/highcharts-more-4.1.9.js"></script>
+		<script type="text/javascript" src="https://d10cq78zmnjvsx.cloudfront.net/js/highcharts/highcharts-settings.js"></script>
+		
+		<link href="master.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div id="chart" class="chart"></div>
+
+		<script type="text/javascript">
+			$(function() {
+				
+				$("#chart").highcharts({
+					chart: {
+						type: "column"
+					},
+					plotOptions: {
+						series: {
+							stacking: "normal"
+						}
+					},
+					series: [{
+						color: "rgba(244,119,53,0.5)",
+						data: [0.5, 0.5, 0.75, 1, 1.5],
+						states: {
+							hover: {
+								enabled: false
+							}
+						}
+					},{
+						color: "#F47735",
+						data: [4.25, 4.50, 4.75, 5.00, 5.00],
+						states: {
+							hover: {
+								enabled: false
+							}
+						}
+					}],
+					tooltip: {
+						enabled: false
+					},
+					xAxis: {
+						categories: ["Multifamily", "Office", "Industrial", "Retail", "Hotel"],
+						labels: {
+							style: {
+								fontSize: 14
+							}
+						},
+						lineColor: "hsl(210,10%,80%)"
+					},
+					yAxis: {
+						labels: {
+							formatter: function() {
+								var num = this.value;
+								num = num + "%";
+								return num;
+							},
+							style: {
+								fontSize: 14
+							}
+						},
+						min: 0,
+						max: 8
+					}
+				});
+			});
+		</script>
+
+				
+	</body>
+</html>
