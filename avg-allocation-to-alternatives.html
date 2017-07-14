@@ -12,16 +12,10 @@
 
 		<script type="text/javascript">
 			$(function() {
-
-				Highcharts.setOptions({
-					yAxis: {
-						tickPixelInterval: null
-					}
-				});
 				
 				$("#chart").highcharts({
 					chart: {
-						type: "area"
+						type: "column"
 					},
 					plotOptions: {
 						series: {
@@ -29,13 +23,8 @@
 						}
 					},
 					series: [{
-						color: "hsl(210,10%,85%)",
-						data: [88, 89, 88, 87, 86, 85, 69, 66, 63, 54, 48, 49, 46, 41, 37, 41, 43, 38, 39, 40.5, 35, 32.5, 31, 25, 19, 21, 18, 20, 23, 24.5, 26],
-						marker:{
-							enabled: false
-						},
-						pointIntervalUnit: 'year',
-						pointStart: Date.UTC(1985,0,1),
+						color: "rgba(244,119,53,0.5)",
+						data: [0.5, 0.5, 0.75, 1, 1.5],
 						states: {
 							hover: {
 								enabled: false
@@ -43,12 +32,7 @@
 						}
 					},{
 						color: "#F47735",
-						data: [12, 11, 12, 13, 14, 15, 31, 34, 37, 46, 52, 51, 54, 59, 63, 59, 57, 62, 61, 59.5, 65, 67.5, 69, 75, 81, 79, 82, 80, 77, 75.5, 74],
-						marker: {
-							symbol: 'circle'
-						},
-						pointIntervalUnit: 'year',
-						pointStart: Date.UTC(1985,0,1),
+						data: [4.25, 4.50, 4.75, 5.00, 5.00],
 						states: {
 							hover: {
 								enabled: false
@@ -59,17 +43,15 @@
 						enabled: false
 					},
 					xAxis: {
+						categories: ["Multifamily", "Office", "Industrial", "Retail", "Hotel"],
 						labels: {
 							style: {
-								fontSize: 12
+								fontSize: 14
 							}
 						},
-						lineColor: "hsl(210,10%,80%)",
-						type: 'datetime'
+						lineColor: "hsl(210,10%,80%)"
 					},
 					yAxis: {
-						gridLineColor: 'rgba(0,0,0,0.2)',
-						gridZIndex: 4,
 						labels: {
 							formatter: function() {
 								var num = this.value;
@@ -77,12 +59,11 @@
 								return num;
 							},
 							style: {
-								fontSize: 12
+								fontSize: 14
 							}
 						},
 						min: 0,
-						max: 100,
-						tickInterval: 20
+						max: 7
 					}
 				});
 			});
