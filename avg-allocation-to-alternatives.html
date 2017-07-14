@@ -23,16 +23,19 @@
 						}
 					},
 					series: [{
-						color: "rgba(244,119,53,0.5)",
-						data: [0.5, 0.5, 0.75, 1, 1.5],
-						states: {
-							hover: {
-								enabled: false
-							}
-						}
-					},{
 						color: "#F47735",
-						data: [4.25, 4.50, 4.75, 5.00, 5.00],
+						data: [27, 29, 5],
+						dataLabels: {
+							enabled: true,
+							formatter: function() {
+								return this.y + '%';
+							},
+							inside: false,
+							style: {
+								fontSize: '18px',
+								fontWeight: 'normal'
+							}
+						},
 						states: {
 							hover: {
 								enabled: false
@@ -43,10 +46,10 @@
 						enabled: false
 					},
 					xAxis: {
-						categories: ["Multifamily", "Office", "Industrial", "Retail", "Hotel"],
+						categories: ["Pensions", "Endowments", "Individuals"],
 						labels: {
 							style: {
-								fontSize: 14
+								fontSize: 12
 							}
 						},
 						lineColor: "hsl(210,10%,80%)"
@@ -59,11 +62,10 @@
 								return num;
 							},
 							style: {
-								fontSize: 14
+								fontSize: 12
 							}
 						},
-						min: 0,
-						max: 7
+						tickInterval: 5
 					}
 				});
 			});
