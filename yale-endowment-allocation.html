@@ -1,0 +1,93 @@
+<html>
+	<head>
+		<script type="text/javascript" src="https://d10cq78zmnjvsx.cloudfront.net/js/jquery-1.9.1.gz.min.js"></script>
+		<script type="text/javascript" src="https://d10cq78zmnjvsx.cloudfront.net/js/highcharts/highcharts-4.1.9.js"></script>
+		<script type="text/javascript" src="https://d10cq78zmnjvsx.cloudfront.net/js/highcharts/highcharts-more-4.1.9.js"></script>
+		<script type="text/javascript" src="https://d10cq78zmnjvsx.cloudfront.net/js/highcharts/highcharts-settings.js"></script>
+		
+		<link href="master.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div id="chart" class="chart"></div>
+
+		<script type="text/javascript">
+			$(function() {
+
+				Highcharts.setOptions({
+					yAxis: {
+						tickPixelInterval: null
+					}
+				});
+				
+				$("#chart").highcharts({
+					chart: {
+						type: "area"
+					},
+					plotOptions: {
+						series: {
+							stacking: "normal"
+						}
+					},
+					series: [{
+						color: "hsl(210,10%,85%)",
+						data: [88, 89, 88, 87, 86, 85, 69, 66, 63, 54, 48, 49, 46, 41, 37, 41, 43, 38, 39, 40.5, 35, 32.5, 31, 25, 19, 21, 18, 20, 23, 24.5, 26],
+						marker:{
+							enabled: false
+						},
+						pointIntervalUnit: 'year',
+						pointStart: Date.UTC(1985,0,1),
+						states: {
+							hover: {
+								enabled: false
+							}
+						}
+					},{
+						color: "#F47735",
+						data: [12, 11, 12, 13, 14, 15, 31, 34, 37, 46, 52, 51, 54, 59, 63, 59, 57, 62, 61, 59.5, 65, 67.5, 69, 75, 81, 79, 82, 80, 77, 75.5, 74],
+						marker: {
+							symbol: 'circle'
+						},
+						pointIntervalUnit: 'year',
+						pointStart: Date.UTC(1985,0,1),
+						states: {
+							hover: {
+								enabled: false
+							}
+						}
+					}],
+					tooltip: {
+						enabled: false
+					},
+					xAxis: {
+						labels: {
+							style: {
+								fontSize: 14
+							}
+						},
+						lineColor: "hsl(210,10%,80%)",
+						type: 'datetime'
+					},
+					yAxis: {
+						gridLineColor: 'rgba(0,0,0,0.2)',
+						gridZIndex: 4,
+						labels: {
+							formatter: function() {
+								var num = this.value;
+								num = num + "%";
+								return num;
+							},
+							style: {
+								fontSize: 14
+							}
+						},
+						min: 0,
+						max: 100,
+						tickInterval: 20
+					}
+				});
+			});
+		</script>
+
+				
+	</body>
+</html>
